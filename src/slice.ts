@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit/react"
 const initialState = {
     items: [
         {id:1, text:'one text', author:'me author', color:'green'},
-        {id:2, text:'two text', author:'dick', color:'yellow'},
+        {id:2, text:'two text', author:'dick', color:'yellowgreen'},
         {id:3, text:'tree text', author:'card', color:'orange'},
         {id:4, text:'four text', author:'bilbo', color:'gray'},
         {id:5, text:'five text', author:'gicci', color:'red'},
