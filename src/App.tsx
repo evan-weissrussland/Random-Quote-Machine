@@ -1,9 +1,9 @@
 import {IconsTelegram, IconsTwitter} from './Icons.tsx'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./store.ts";
-import {InitialStateType, setColor, setQuote} from "./slice.ts";
-import {useSpring, animated} from '@react-spring/web'
-import {useEffect, useRef, useState} from "react";
+import {setColor, setQuote} from "./slice.ts";
+import {animated, useSpring} from '@react-spring/web'
+import {useEffect, useRef} from "react";
 
 export const App = () => {
     const dispatch = useDispatch()
@@ -26,7 +26,7 @@ export const App = () => {
 
     const colorItem = stateColor.find(i => i.id === currentColorId)
 
-    const refT = useRef({col:'black', dur:500})
+    const refT = useRef({col: 'black', dur: 500})
 
     const [propsText, apiText] = useSpring(() => ({
         from: {opacity: 0},
@@ -34,7 +34,7 @@ export const App = () => {
         config: {duration: 500}
     }), [currentQuoteId]);
 
-    const [propsBackgroundColor, apiMain] = useSpring(() => ({
+    const [propsBackgroundColor] = useSpring(() => ({
         from: {backgroundColor: refT.current.col},
         to: {backgroundColor: colorItem!.color},
         config: {duration: refT.current.dur}
@@ -66,8 +66,8 @@ export const App = () => {
         <animated.main style={{...propsBackgroundColor, color: `${quote!.color}`}}>
             <section>
                 <animated.div style={propsText}>
-                    <h1>{ quote!.text }</h1>
-                    <p>-{ quote!.author }</p>
+                    <h1>{quote!.text}</h1>
+                    <p>-{quote!.author}</p>
                 </animated.div>
 
                 <footer>
