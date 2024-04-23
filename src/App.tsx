@@ -4,7 +4,8 @@ import {AppRootStateType} from "./store.ts";
 import {setColor, setQuote} from "./slice.ts";
 import {animated, useSpring} from '@react-spring/web'
 import {useEffect, useRef} from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faQuoteLeft} from "@fortawesome/free-solid-svg-icons/faQuoteLeft";
 export const App = () => {
     const dispatch = useDispatch()
 
@@ -66,7 +67,10 @@ export const App = () => {
         <animated.main style={{...propsBackgroundColor, color: `${quote!.color}`}}>
             <section>
                 <animated.div style={propsText}>
-                    <h1>{quote!.text}</h1>
+                    <h1>
+                        <FontAwesomeIcon size={'xl'} className={'iconQuote'} icon={faQuoteLeft}/>
+                        <span>{quote!.text}</span>
+                    </h1>
                     <p>-{quote!.author}</p>
                 </animated.div>
 
