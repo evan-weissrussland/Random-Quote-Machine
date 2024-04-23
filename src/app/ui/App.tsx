@@ -1,7 +1,7 @@
-import {IconsTelegram, IconsTwitter} from './Icons.tsx'
+import {IconsTelegram, IconsTwitter} from '../../common/components/Icons.tsx'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "./store.ts";
-import {setColor, setQuote} from "./slice.ts";
+import {AppRootStateType} from "../model/store.ts";
+import {setColor, setQuote} from "../model/slice.ts";
 import {animated, useSpring} from '@react-spring/web'
 import {useEffect, useRef} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,7 +27,7 @@ export const App = () => {
 
     const colorItem = stateColor.find(i => i.id === currentColorId)
 
-    const refT = useRef({col: 'white', dur: 500})
+    const refT = useRef({col: 'black', dur: 500})
 
     const [propsText, apiText] = useSpring(() => ({
         from: {opacity: 0},
@@ -57,11 +57,8 @@ export const App = () => {
 
     useEffect(() => {
         refT.current.col = colorItem!.color
-    }, [currentColorId])
-
-    useEffect(() => {
         refT.current.dur = 1000
-    }, [])
+    }, [currentColorId])
 
     return (
         <animated.main style={{...propsBackgroundColor, color: `${quote!.color}`}}>
