@@ -27,7 +27,7 @@ export const App = () => {
 
     const colorItem = stateColor.find(i => i.id === currentColorId)
 
-    const refT = useRef({col: 'black', dur: 500})
+    const refT = useRef({col: 'white', dur: 500})
 
     const [propsText, apiText] = useSpring(() => ({
         from: {opacity: 0},
