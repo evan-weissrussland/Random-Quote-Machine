@@ -34,8 +34,6 @@ const initialState = {
     currentColor: 1,
 }
 
-export type InitialStateType = typeof initialState
-
 export const slice = createSlice({
     name: 'quote',
     initialState: initialState,
@@ -51,3 +49,4 @@ export const slice = createSlice({
 
 export const qouteReducer = slice.reducer
 export const {setQuote, setColor} = slice.actions
+

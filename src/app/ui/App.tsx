@@ -1,31 +1,25 @@
 import {IconsTelegram, IconsTwitter} from '../../common/components/Icons.tsx'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../model/store.ts";
 import {setColor, setQuote} from "../model/slice.ts";
 import {animated, useSpring} from '@react-spring/web'
 import {useEffect, useRef} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faQuoteLeft} from "@fortawesome/free-solid-svg-icons/faQuoteLeft";
+import {colorsState, currentColor, currentQuote, quoteItems} from "../model/app-selectors.ts";
+import {getItemFromState} from "../../common/utils/function.ts";
+
 export const App = () => {
     const dispatch = useDispatch()
 
 
-    const items = useSelector<AppRootStateType, {
-        id: number,
-        text: string,
-        author: string,
-        color: string
-    }[]>(state => state.quote.items)
+    const items = useSelector(quoteItems)
+    const currentQuoteId = useSelector(currentQuote)
+    const stateColor = useSelector(colorsState)
+    const currentColorId = useSelector(currentColor)
 
-    const currentQuoteId = useSelector<AppRootStateType, number>(state => state.quote.currentQuote)
+    const quote = getItemFromState(items, currentQuoteId)
 
-    const quote = items.find(i => i.id === currentQuoteId)
-
-    const stateColor = useSelector<AppRootStateType, { id: number, color: string }[]>(state => state.quote.colors)
-
-    const currentColorId = useSelector<AppRootStateType, number>(state => state.quote.currentColor)
-
-    const colorItem = stateColor.find(i => i.id === currentColorId)
+    const colorItem = getItemFromState(stateColor, currentColorId)
 
     const refT = useRef({col: 'black', dur: 500})
 

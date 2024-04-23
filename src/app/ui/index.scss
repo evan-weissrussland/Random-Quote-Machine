@@ -1,83 +1,5 @@
 @import url(../../styles/_boilerplate.scss);
-
-@font-face {
-  font-family: 'Raleway';
-  src: url(../../assets/fonts/Raleway-Regular.eot?) format('eot'),
-  url(../../assets/fonts/Raleway-Regular.ttf) format('truetype'),
-  url(../../assets/fonts/Raleway-Regular.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Raleway';
-  src: url(../../assets/fonts/Raleway-Medium.eot?) format('eot'),
-  url(../../assets/fonts/Raleway-Medium.ttf) format('truetype'),
-  url(../../assets/fonts/Raleway-Medium.woff2) format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font: inherit;
-  display: inline-flex;
-  padding: 10px;
-  border-radius: 5px;
-  position: relative;
-
-  &::after {
-    content: '';
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    transition: 0.3s;
-  }
-
-  &:hover {
-    &::after {
-      background: rgba(255, 255, 255, 0.5);
-    }
-  }
-
-}
-
-button {
-  all: unset;
-  padding: 6px 15px;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  font-family: sans-serif;
-
-  &::after {
-    content: '';
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    transition: 0.3s;
-  }
-
-  &:hover {
-    &::after {
-      background: rgba(255, 255, 255, 0.5);
-    }
-  }
-}
+@import url(../../styles/_fonts.scss);
 
 main {
   display: flex;
@@ -85,57 +7,114 @@ main {
   overflow: hidden;
   justify-content: center;
   align-items: center;
-}
 
-section {
-  background-color: white;
-  padding: 40px 50px;
-  width: 550px;
+  section {
+    background-color: white;
+    padding: 40px 50px;
+    width: 550px;
 
-  //min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 30px;
-  border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    border-radius: 5px;
 
-  & > div {
-    //border: 3px solid blue;
+    & > div {
 
-    h1 {
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: inherit;
-
-      span {
+      h1 {
+        margin-bottom: 20px;
         text-align: center;
-        font-size: 28px;
-        //border: 2px solid firebrick;
+        font-weight: inherit;
 
+        span {
+          text-align: center;
+          font-size: 28px;
+
+        }
+
+        .iconQuote {
+          margin-right: 10px;
+        }
       }
 
-      .iconQuote {
-        margin-right: 10px;
-        //font-size: 24px;
-        //width: 26px;
-        //height: 28px;
+      p {
+        text-align: right;
+        font-weight: 400;
       }
     }
 
-    p {
-      text-align: right;
-      font-weight: 400;
+    footer {
+      display: flex;
+      justify-content: space-between;
+
+      .icons {
+        display: flex;
+        gap: 10px;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          font: inherit;
+          display: inline-flex;
+          padding: 10px;
+          border-radius: 5px;
+          position: relative;
+
+          &::after {
+            content: '';
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            transition: 0.3s;
+          }
+
+          &:hover {
+            &::after {
+              background: rgba(255, 255, 255, 0.5);
+            }
+          }
+
+        }
+      }
+
+      button {
+        all: unset;
+        padding: 6px 15px;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        font-family: sans-serif;
+
+        &::after {
+          content: '';
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 2;
+          transition: 0.3s;
+        }
+
+        &:hover {
+          &::after {
+            background: rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
     }
   }
 }
 
-.icons {
-  display: flex;
-  gap: 10px;
-}
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  //border: 3px solid red;
-}
+
+
+
+
