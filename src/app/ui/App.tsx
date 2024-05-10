@@ -74,7 +74,7 @@ export const App = () => {
                             <IconsTelegram/>
                         </animated.a>
                     </div>
-                    <animated.button style={propsBackgroundColor} onClick={changeQuoteHandler}>New quote
+                    <animated.button style={propsBackgroundColor} onClick={changeQuoteHandler}>New quote {import.meta.env.VITE_APP_KEY}
                     </animated.button>
                 </footer>
             </section>
